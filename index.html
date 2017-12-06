@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Disney Hangman</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
+
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <!-- title box-->
+      <div class="border">
+        <p class="font maintitle">Disney Hangman</p>
+      </div>
+
+
+    <!-- instuctions and wins box-->
+      <div class="font border bigfont">
+        <div class="inline boxleft centertext">
+          <p>Guess the Disney Character!</p>
+          <p>Press Space to begin</p>
+        </div>
+        <div class="inline boxright centertext">
+          <p>Wins</p>
+          <p>8</p>
+        </div>
+      </div>
+
+    <!-- image and word to guess box -->
+      <div class="border bigfont centertext">
+        <img id="pic" class="imgsize" src="./assets/images/stitch.png">
+
+        <!-- word to Guess -->
+        <div class="guessbox">
+          <span id="wordGuess"></span>
+        </div>
+      </div>
+
+    <!-- counter of guesses left and letters guessed box -->
+      <div class="font border bigfont ">
+      <!-- counter of guesses left -->
+        <div class="inline boxleft centertext">
+          <p class="">Guesses left</p>
+          <p>10</p>
+        </div>
+
+        <!-- letters guessed -->
+        <div class="inline boxright centertext">
+          <p class="">letters guessed</p>
+          <p>a dk sdlfjasdf</p>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Javascript stuff -->
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+    <script type="text/javascript">
+      randomWord();
+      spanSplit();
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,85 @@
+.font {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 70%;
+  min-width: 450px;
+}
+
+
+.border {
+  border: solid;
+  border-width: medium;
+  border-radius: 25px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.maintitle {
+  font-size: 70px;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.imgsize {
+  height: 300px;
+  width: 300px;
+  margin: 10px;
+}
+
+.bigfont {
+  font-size: 30px;
+}
+
+.boxleft {
+  width: 30%;
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.boxright {
+  width: 30%;
+  float: right;
+  margin-right: 10%;
+  margin-top: 10px;
+}
+
+.centertext {
+  text-align: center;
+}
+
+.guessbox {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.letter {
+  border-bottom: solid;
+  border width: 4px;
+  font-size: 25px;
+  margin-left: 10px;
+  margin-right:10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.space {
+  font-size: 25px;
+  margin-left: 10px;
+  margin-right:10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.hide{
+  visibility: hidden;
+}
