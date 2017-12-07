@@ -51,41 +51,47 @@ function randomWord() {
 };
 
 // splits splitRandomGuess into an array of letters
-// split word to individual spans (for loop to put string into spans)
+// split word to individual divs and spans
 function spanSplit() {
   splitRandomGuess = randomGuess.split("");
   for (var i=0; i<splitRandomGuess.length; i++){
+    var divletter = document.createElement("div");
+    var divGuess = document.getElementById("wordGuess");
+    divletter.id = 'letterGuess' + i;
     if (splitRandomGuess[i]!==" ") {
-      var spanletter = document.createElement("span");
-      var node = document.createTextNode(splitRandomGuess[i]);
-      spanletter.appendChild(node);
-      spanletter.className = 'letter';
-      var element = document.getElementById("wordGuess");
-      element.appendChild(spanletter);
+      divletter.className = 'inline letter';
       }
     else {
+      divletter.className = 'inline space';
+      };
+      divGuess.appendChild(divletter);
       var spanletter = document.createElement("span");
       var node = document.createTextNode(splitRandomGuess[i]);
       spanletter.appendChild(node);
-      spanletter.className = 'space';
-      var element = document.getElementById("wordGuess");
-      element.appendChild(spanletter);
-      };
+      spanletter.className = 'hide';
+      var spanGuess = document.getElementById("letterGuess" + i);
+      spanGuess.appendChild(spanletter);
     };
+    console.log(splitRandomGuess);
   };
-// displays correct guess (if statement)
 
+// shows letter if correct (if statement)
+function showLetter() {
+  //variable to store key event
+  document.onkeyup() = function(event) {
+  };
+
+  };
 // decrease guess count if wrong
+function guessesLeft() {
+  var remaining = 8;
+  remaining--;
+
+};
+// puts incorrect guess into letters guessed area
 
 // show character if win
 
-// show lose image if lose
-// shows the letter if correct
-function showLetter() {
-    var x = document.getElementById("").value;
-    document.getElementById("").innerHTML = x;
-  }
+// increase win count by one if win
 
-function showsomething() {
-  document.write("hello");
-};
+// show lose image if lose
