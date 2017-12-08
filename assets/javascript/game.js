@@ -64,13 +64,13 @@ function spanSplit() {
     else {
       divletter.className = 'inline space';
       };
-      divGuess.appendChild(divletter);
-      var spanletter = document.createElement("span");
-      var node = document.createTextNode(splitRandomGuess[i]);
-      spanletter.appendChild(node);
-      spanletter.className = 'hide';
-      var spanGuess = document.getElementById("letterGuess" + i);
-      spanGuess.appendChild(spanletter);
+    divGuess.appendChild(divletter);
+    var spanletter = document.createElement("span");
+    var node = document.createTextNode(splitRandomGuess[i]);
+    spanletter.appendChild(node);
+    spanletter.className = 'hide';
+    var spanGuess = document.getElementById("letterGuess" + i);
+    spanGuess.appendChild(spanletter);
     };
     console.log(splitRandomGuess);
   };
@@ -78,7 +78,8 @@ function spanSplit() {
 // shows letter if correct (if statement)
 function showLetter() {
   //variable to store key event
-  document.onkeyup() = function(event) {
+  document.addEventListener("keyup", )
+
   };
 
   };
