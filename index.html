@@ -5,6 +5,7 @@
     <title>Disney Hangman</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
 
@@ -36,13 +37,13 @@
         <img id="pic" class="imgsize" src="./assets/images/stitch.png">
 
         <!-- word to Guess -->
-        <div id="wordGuess" class="guessbox">
+        <div id="wordGuess" class="guessbox font" >
 
         </div>
       </div>
 
     <!-- counter of guesses left and letters guessed box -->
-      <div class="font border bigfont ">
+      <div class="font border bigfont">
       <!-- counter of guesses left -->
         <div class="inline boxleft centertext">
           <p class="">Guesses left</p>
@@ -63,7 +64,8 @@
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
     <script type="text/javascript">
       randomWord();
-      spanSplit();
+      // spanSplit();
+      underscore();
 
 
     </script>

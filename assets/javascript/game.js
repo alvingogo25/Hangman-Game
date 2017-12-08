@@ -1,4 +1,4 @@
-// variables
+// VARIABLES
 // array of words to guess
 var charGuess = ["stitch", "chesire cat", "dopey", "captain hook", "jasmine", "mushu", "nemo", "olaf", "peter pan", "pluto", "timon", "tinker bell"];
 
@@ -8,6 +8,11 @@ var randomGuess = "";
 // word to guess split into an array of letters
 var splitRandomGuess = [];
 
+var remaining = 10;
+
+var hiddenGuess = [];
+
+//FUNCTIONS
 // picks random word from array
 function randomWord() {
   var indeximg = document.getElementById('pic');
@@ -15,77 +20,69 @@ function randomWord() {
   if (randomGuess=="dopey"){
     indeximg.src="../Hangman-Game/assets/images/dopey.png";
   }
-  if (randomGuess=="chesire cat"){
+  else if (randomGuess=="chesire cat"){
     indeximg.src="../Hangman-Game/assets/images/chesire.png";
   }
-  if (randomGuess=="stitch"){
+  else if (randomGuess=="stitch"){
     indeximg.src="../Hangman-Game/assets/images/stitch.png";
   }
-  if (randomGuess=="captain hook"){
+  else if (randomGuess=="captain hook"){
     indeximg.src="../Hangman-Game/assets/images/hook.png";
   }
-  if (randomGuess=="jasmine"){
+  else if (randomGuess=="jasmine"){
     indeximg.src="../Hangman-Game/assets/images/jasmine.png";
   }
-  if (randomGuess=="mushu"){
+  else if (randomGuess=="mushu"){
     indeximg.src="../Hangman-Game/assets/images/mushu.png";
   }
-  if (randomGuess=="nemo"){
+  else if (randomGuess=="nemo"){
     indeximg.src="../Hangman-Game/assets/images/nemo.png";
   }
-  if (randomGuess=="olaf"){
+  else if (randomGuess=="olaf"){
     indeximg.src="../Hangman-Game/assets/images/olaf.png";
   }
-  if (randomGuess=="peter pan"){
+  else if (randomGuess=="peter pan"){
     indeximg.src="../Hangman-Game/assets/images/peterpan.png";
   }
-  if (randomGuess=="pluto"){
+  else if (randomGuess=="pluto"){
     indeximg.src="../Hangman-Game/assets/images/pluto.png";
   }
-  if (randomGuess=="timon"){
+  else if (randomGuess=="timon"){
     indeximg.src="../Hangman-Game/assets/images/timon.png";
   }
-  if (randomGuess=="tinker bell"){
+  else if (randomGuess=="tinker bell"){
     indeximg.src="../Hangman-Game/assets/images/tink.png";
   }
 };
 
-// splits splitRandomGuess into an array of letters
-// split word to individual divs and spans
-function spanSplit() {
-  splitRandomGuess = randomGuess.split("");
-  for (var i=0; i<splitRandomGuess.length; i++){
-    var divletter = document.createElement("div");
-    var divGuess = document.getElementById("wordGuess");
-    divletter.id = 'letterGuess' + i;
-    if (splitRandomGuess[i]!==" ") {
-      divletter.className = 'inline letter';
-      }
+// turns randomGuess into underscores
+function underscore() {
+  for (var i=0; i < randomGuess.length; i++){
+    if (randomGuess[i]!==" "){
+      hiddenGuess[i] = "_";
+    }
     else {
-      divletter.className = 'inline space';
-      };
-    divGuess.appendChild(divletter);
-    var spanletter = document.createElement("span");
-    var node = document.createTextNode(splitRandomGuess[i]);
-    spanletter.appendChild(node);
-    spanletter.className = 'hide';
-    var spanGuess = document.getElementById("letterGuess" + i);
-    spanGuess.appendChild(spanletter);
+      hiddenGuess[i]="-";
     };
-    console.log(splitRandomGuess);
   };
+  var divGuess = document.getElementById('wordGuess');
+  var node = document.createTextNode(hiddenGuess.join(" "));
+  divGuess.appendChild(node);
+  console.log(hiddenGuess);
+}
+
 
 // shows letter if correct (if statement)
-function showLetter() {
+//function showLetter() {
   //variable to store key event
-  document.addEventListener("keyup", )
 
-  };
+// document.onkeyup = function(event) {
+//   var userGuess =
+// }
 
-  };
 // decrease guess count if wrong
 function guessesLeft() {
-  var remaining = 8;
+
   remaining--;
 
 };
