@@ -42,28 +42,7 @@ var hangman = {
       indeximg.src="../Hangman-Game/assets/images/tink.png";
     }
   },
-  spanSplit: function() {
-    splitRandomGuess = randomGuess.split("");
-    for (var i=0; i<splitRandomGuess.length; i++){
-      var divletter = document.createElement("div");
-      var divGuess = document.getElementById("wordGuess");
-      divletter.id = 'letterGuess' + i;
-      if (splitRandomGuess[i]!==" ") {
-        divletter.className = 'inline letter';
-        }
-      else {
-        divletter.className = 'inline space';
-        };
-      divGuess.appendChild(divletter);
-      var spanletter = document.createElement("span");
-      var node = document.createTextNode(splitRandomGuess[i]);
-      spanletter.appendChild(node);
-      spanletter.className = 'hide';
-      var spanGuess = document.getElementById("letterGuess" + i);
-      spanGuess.appendChild(spanletter);
-      };
-    },
-
+  
 
 
 }

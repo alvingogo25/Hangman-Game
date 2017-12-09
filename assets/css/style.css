@@ -7,15 +7,31 @@
   margin: 0 auto;
   width: 70%;
   min-width: 450px;
+
 }
 
-
 .border {
-  border: solid;
+  border-bottom: solid;
+  border-right: solid;
   border-width: medium;
   border-radius: 25px;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+
+.blue {
+  background-color: #98CEF5;
+  border-color: #6ABAF3;
+}
+
+.blue2 {
+  background-color: #A1A3F6;
+  border-color: #777AF5;
+}
+
+.green {
+  background-color: #93F6C9;
+  border-color: #35F09B;
 }
 
 .maintitle {

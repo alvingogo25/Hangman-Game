@@ -15,45 +15,44 @@
     <div class="wrapper">
 
       <!-- title box-->
-      <div class="border">
+      <div class="border blue">
         <p class="font maintitle">Disney Hangman</p>
       </div>
 
 
     <!-- instuctions and wins box-->
-      <div class="font border bigfont">
+      <div class="font border bigfont blue">
         <div class="inline boxleft centertext">
           <p>Guess the Disney Character!</p>
-          <p>Press Space to begin</p>
+          <p>Press any key to begin</p>
         </div>
         <div class="inline boxright centertext">
           <p>Wins</p>
-          <p>8</p>
+          <p id="wins"></p>
         </div>
       </div>
 
     <!-- image and word to guess box -->
-      <div class="border bigfont centertext">
+      <div class="border bigfont centertext blue2">
         <img id="pic" class="imgsize" src="./assets/images/stitch.png">
 
         <!-- word to Guess -->
-        <div id="wordGuess" class="guessbox font" >
-
+        <div id="wordGuess" class="guessbox font">
         </div>
       </div>
 
     <!-- counter of guesses left and letters guessed box -->
-      <div class="font border bigfont">
+      <div class="font border bigfont green">
       <!-- counter of guesses left -->
         <div class="inline boxleft centertext">
           <p class="">Guesses left</p>
-          <p>10</p>
+          <p id="guessLeft"></p>
         </div>
 
         <!-- letters guessed -->
         <div class="inline boxright centertext">
           <p class="">letters guessed</p>
-          <p>a dk sdlfjasdf</p>
+          <div id="wrong"></div>
         </div>
       </div>
 
@@ -63,9 +62,10 @@
     <!-- Javascript stuff -->
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
     <script type="text/javascript">
-      randomWord();
-      // spanSplit();
+      getWord();
+      strSplit();
       underscore();
+      win();
 
 
     </script>
