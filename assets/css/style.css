@@ -1,3 +1,8 @@
+body {
+  background-image: url(../images/mickey.jpg);
+  background-size: cover;
+}
+
 .font {
   font-family: 'Shadows Into Light', cursive;
   font-weight: bold;
@@ -11,33 +16,18 @@
 }
 
 .border {
-  border-bottom: solid;
-  border-right: solid;
-  border-width: medium;
   border-radius: 25px;
   margin-bottom: 5px;
   margin-top: 5px;
-}
-
-.blue {
-  background-color: #98CEF5;
-  border-color: #6ABAF3;
-}
-
-.blue2 {
-  background-color: #A1A3F6;
-  border-color: #777AF5;
-}
-
-.green {
-  background-color: #93F6C9;
-  border-color: #35F09B;
+  border-color: #DDD;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .maintitle {
-  font-size: 70px;
+  font-size: 60px;
   text-align: center;
-  padding: 30px 10px;
+  padding: 25px 10px;
+  opacity: 1;
 }
 
 .inline {
@@ -45,8 +35,8 @@
 }
 
 .imgsize {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   margin: 10px;
 }
 
@@ -75,7 +65,6 @@
 
 .guessbox {
   margin-top: 20px;
-  margin-bottom: 20px;
   font-family: 'Indie Flower', cursive;
   font-size: 50px;
 }
@@ -89,18 +78,6 @@
   width: 35px;
 }
 
-.space {
+#btn {
   font-size: 25px;
-  margin-left: 10px;
-  margin-right:10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.hide{
-  visibility: hidden;
-}
-
-.show {
-  visibility: visible;
 }

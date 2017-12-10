@@ -11,20 +11,25 @@
 
   </head>
   <body>
-
+    <audio id="mickey">
+      <source src="./assets/audio/oh-boy.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bald">
+      <source src="./assets/audio/bald.mp3" type="audio/mpeg">
+    </audio>
     <div class="wrapper">
 
       <!-- title box-->
-      <div class="border blue">
+      <div class="border">
         <p class="font maintitle">Disney Hangman</p>
       </div>
 
 
     <!-- instuctions and wins box-->
-      <div class="font border bigfont blue">
+      <div class="font border bigfont">
         <div class="inline boxleft centertext">
           <p>Guess the Disney Character!</p>
-          <p>Press any key to begin</p>
+          <p id="reset">Press any key to begin</p>
         </div>
         <div class="inline boxright centertext">
           <p>Wins</p>
@@ -33,8 +38,8 @@
       </div>
 
     <!-- image and word to guess box -->
-      <div class="border bigfont centertext blue2">
-        <img id="pic" class="imgsize" src="./assets/images/stitch.png">
+      <div class="border bigfont centertext">
+        <img id="pic" class="imgsize" src="">
 
         <!-- word to Guess -->
         <div id="wordGuess" class="guessbox font">
@@ -42,7 +47,7 @@
       </div>
 
     <!-- counter of guesses left and letters guessed box -->
-      <div class="font border bigfont green">
+      <div class="font border bigfont">
       <!-- counter of guesses left -->
         <div class="inline boxleft centertext">
           <p class="">Guesses left</p>
@@ -62,11 +67,9 @@
     <!-- Javascript stuff -->
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
     <script type="text/javascript">
-      getWord();
-      strSplit();
-      underscore();
-      win();
 
+      getWord();
+      underscore();
 
     </script>
 

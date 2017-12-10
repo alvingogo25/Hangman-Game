@@ -1,23 +1,22 @@
 // VARIABLES
 // array of words to guess
-var charGuess = ["stitch", "chesire-cat", "dopey", "captain-hook", "jasmine", "mushu", "nemo", "olaf", "peter-pan", "pluto", "timon", "tinker-bell"];
+var charGuess = ["stitch", "cheshire-cat", "dopey", "captain-hook", "jasmine", "mushu", "nemo", "olaf", "peter-pan", "pluto", "timon", "tinker-bell"];
 
 // new variable to set as the word to guess
 var randomWord = "";
 
-// word to guess split into an array of letters
-var splitRandomWord = [];
-
+// sets wins
 var winner = 0;
   var winCounter = document.getElementById('wins');
   winCounter.innerHTML = winner;
 
+// sets remaining guesses
 var remaining = 10;
-  var guessCounter = document.getElementById('guessLeft');
-  guessCounter.innerHTML = remaining;
 
+// empty array for correct guesses
 var answer = [];
 
+// empty array for incorrect guesses
 var wrongGuess = [];
 
 
@@ -26,49 +25,11 @@ var wrongGuess = [];
 function getWord() {
   var indeximg = document.getElementById('pic');
   randomWord = charGuess[Math.floor(Math.random() * charGuess.length)];
-  if (randomWord=="dopey"){
-    indeximg.src="../Hangman-Game/assets/images/dopey.png";
-  }
-  else if (randomWord=="chesire-cat"){
-    indeximg.src="../Hangman-Game/assets/images/chesire.png";
-  }
-  else if (randomWord=="stitch"){
-    indeximg.src="../Hangman-Game/assets/images/stitch.png";
-  }
-  else if (randomWord=="captain-hook"){
-    indeximg.src="../Hangman-Game/assets/images/hook.png";
-  }
-  else if (randomWord=="jasmine"){
-    indeximg.src="../Hangman-Game/assets/images/jasmine.png";
-  }
-  else if (randomWord=="mushu"){
-    indeximg.src="../Hangman-Game/assets/images/mushu.png";
-  }
-  else if (randomWord=="nemo"){
-    indeximg.src="../Hangman-Game/assets/images/nemo.png";
-  }
-  else if (randomWord=="olaf"){
-    indeximg.src="../Hangman-Game/assets/images/olaf.png";
-  }
-  else if (randomWord=="peter-pan"){
-    indeximg.src="../Hangman-Game/assets/images/peterpan.png";
-  }
-  else if (randomWord=="pluto"){
-    indeximg.src="../Hangman-Game/assets/images/pluto.png";
-  }
-  else if (randomWord=="timon"){
-    indeximg.src="../Hangman-Game/assets/images/timon.png";
-  }
-  else if (randomWord=="tinker-bell"){
-    indeximg.src="../Hangman-Game/assets/images/tink.png";
-  }
-};
-
-// splits randomWord to match answer array
-function strSplit() {
-  for (var x =0; x<randomWord.length; x++) {
-    splitRandomWord.push(randomWord[x]);
-  }
+  indeximg.src = "../Hangman-Game/assets/images/clue/" + randomWord + ".png";
+  var guessCounter = document.getElementById('guessLeft');
+  guessCounter.innerHTML = remaining;
+  var wrongs = document.getElementById('wrong');
+  wrongs.innerHTML = wrongGuess;
 };
 
 // turns randomWord into underscores
@@ -85,19 +46,54 @@ function underscore() {
   divGuess.innerHTML = answer.join(" ");
 };
 
+// win counter
+function win() {
+  if (!answer.includes("_")) {
+    var winCount = document.getElementById('wins');
+    winCount.innerHTML = winner += 1;
+    var reveal = document.getElementById('pic');
+    reveal.src = "../Hangman-Game/assets/images/reveal/" + randomWord + ".jpg";
+    var victory = document.getElementById('mickey');
+    victory.play();
+    resetbtn();
+  }
+};
+// makes reset button
+function resetbtn(){
+  var newWord = document.getElementById('reset');
+  newWord.innerHTML = "<button id=\"btn\" class=\"font\" onclick=\"playagain()\">Play Again</button>"
+};
 
+// changes image and plays track if user loses
+function lose() {
+  if (remaining===0){
+    var loseimg = document.getElementById('pic');
+    loseimg.src = "../Hangman-Game/assets/images/chernabog.jpg";
+    var scare = document.getElementById('bald');
+    scare.play();
+    resetbtn();
+  }
+};
 
+// resets game
+function playagain() {
+  answer = [];
+  randomWord = "";
+  remaining = 10;
+  wrongGuess = [];
+  getWord();
+  underscore();
+};
 
 // shows letter if correct (if statement)
 document.onkeyup = function showLetter() {
-  // checks is user input is a letter
-  if (event.keyCode>=65 && event.keyCode<=90){
+  // checks if user input is a letter
+  if (event.keyCode>=65 && event.keyCode<=90) {
     //variable to store user key press
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
   // checks if letter matches letters in randomWord
   if (randomWord.includes(userGuess)){
-    // loop to display correct user guess in correct index
+    // loop to display correct guess in correct index
     for (var j=0; j <randomWord.length; j++){
       if (userGuess===randomWord[j]) {
         answer[j]=userGuess;
@@ -106,6 +102,7 @@ document.onkeyup = function showLetter() {
         divGuess.innerHTML = answer.join(" ");
         }
       }
+      win();
     }
     // checks incorrect guesses
     else {
@@ -115,20 +112,21 @@ document.onkeyup = function showLetter() {
         }
       else {
         //decreases counter by 1
-        var guessCount = document.getElementById('guessLeft');
-        guessCount.innerHTML = remaining--;
-        //updates letters guessed array
-        wrongGuess.push(userGuess);
-        var wrongLetter = document.getElementById('wrong');
-        wrongLetter.innerHTML = wrongGuess.join("  ");
+        if (remaining > 0){
+          var guessCount = document.getElementById('guessLeft');
+          guessCount.innerHTML = remaining -= 1;
+
+          //updates letters guessed array
+          wrongGuess.push(userGuess);
+          var wrongLetter = document.getElementById('wrong');
+          wrongLetter.innerHTML = wrongGuess.join("  ");
+          lose();
+        }
+        else {
+          wrongGuess = wrongGuess;
+        }
+
         }
       }
-    }
-  };
-
-  function win() {
-    if (answer===splitRandomWord) {
-      var winCount = document.getElementById('wins');
-      winCount.innerHTML = winner++;
     }
   };
