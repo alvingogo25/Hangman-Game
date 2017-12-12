@@ -7,7 +7,8 @@ var randomWord = "";
 
 // sets wins
 var winner = 0;
-  document.getElementById('wins').innerHTML = winner;
+  var winCounter = document.getElementById('wins');
+  winCounter.innerHTML = winner;
 
 // sets remaining guesses
 var remaining = 10;
@@ -18,15 +19,16 @@ var answer = [];
 // empty array for incorrect guesses
 var wrongGuess = [];
 
-var changePic = document.getElementById('pic');
-
 //FUNCTIONS
 // picks random word from array
 function getWord() {
+  var indeximg = document.getElementById('pic');
   randomWord = charGuess[Math.floor(Math.random() * charGuess.length)];
-  changePic.src = "../Hangman-Game/assets/images/clue/" + randomWord + ".png";
-  document.getElementById('guessLeft').innerHTML = remaining;
-  document.getElementById('wrong').innerHTML = wrongGuess;
+  indeximg.src = "../Hangman-Game/assets/images/clue/" + randomWord + ".png";
+  var guessCounter = document.getElementById('guessLeft');
+  guessCounter.innerHTML = remaining;
+  var wrongs = document.getElementById('wrong');
+  wrongs.innerHTML = wrongGuess;
 };
 
 // turns randomWord into underscores
@@ -39,29 +41,37 @@ function underscore() {
       answer[i]=randomWord[i];
     };
   };
-  document.getElementById('wordGuess').innerHTML = answer.join(" ");
+  var divGuess = document.getElementById('wordGuess');
+  divGuess.innerHTML = answer.join(" ");
 };
 
 // win counter
 function win() {
   if (!answer.includes("_")) {
-    document.getElementById('wins').innerHTML = winner += 1;
-    changePic.src = "../Hangman-Game/assets/images/reveal/" + randomWord + ".jpg";
-    document.getElementById('mickey').play();
+    var winCount = document.getElementById('wins');
+    winCount.innerHTML = winner += 1;
+    var reveal = document.getElementById('pic');
+    reveal.src = "../Hangman-Game/assets/images/reveal/" + randomWord + ".jpg";
+    var victory = document.getElementById('mickey');
+    victory.play();
     resetbtn();
   }
 };
 
 // makes reset button
 function resetbtn(){
+  // var newWord = document.getElementById('reset');
   document.getElementById('reset').innerHTML = "<button id=\"btn\" class=\"font\" onclick=\"playagain()\">Play Again</button>"
+  // newWord.innerHTML = "<button id=\"btn\" class=\"font\" onclick=\"playagain()\">Play Again</button>"
 };
 
 // changes image and plays track if user loses
 function lose() {
   if (remaining===0){
-    changePic.src = "../Hangman-Game/assets/images/chernabog.jpg";
-    document.getElementById('bald').play();
+    var loseimg = document.getElementById('pic');
+    loseimg.src = "../Hangman-Game/assets/images/chernabog.jpg";
+    var scare = document.getElementById('bald');
+    scare.play();
     resetbtn();
   }
 };
@@ -74,7 +84,6 @@ function playagain() {
   wrongGuess = [];
   getWord();
   underscore();
-  document.getElementById('reset').innerHTML = "Press any key to begin!"
 };
 
 // shows letter if correct (if statement)
@@ -90,7 +99,8 @@ document.onkeyup = function showLetter() {
       if (userGuess===randomWord[j]) {
         answer[j]=userGuess;
         // displays correct guess
-        document.getElementById('wordGuess').innerHTML = answer.join(" ");
+        var divGuess = document.getElementById('wordGuess');
+        divGuess.innerHTML = answer.join(" ");
         }
       }
       win();
@@ -100,15 +110,17 @@ document.onkeyup = function showLetter() {
       // checks if user has already guessed input
       if (wrongGuess.includes(userGuess)) {
         wrongGuess = wrongGuess
-      }
+        }
       else {
         //decreases counter by 1
         if (remaining > 0){
-          document.getElementById('guessLeft').innerHTML = remaining -= 1;
+          var guessCount = document.getElementById('guessLeft');
+          guessCount.innerHTML = remaining -= 1;
 
           //updates letters guessed array
           wrongGuess.push(userGuess);
-          document.getElementById('wrong').innerHTML = wrongGuess.join("  ");
+          var wrongLetter = document.getElementById('wrong');
+          wrongLetter.innerHTML = wrongGuess.join("  ");
           lose();
         }
         else {
